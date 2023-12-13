@@ -1,5 +1,5 @@
-FROM       ubuntu:14.04
-MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
+FROM       ubuntu:22.04
+MAINTAINER Dincho Todorov "https://github.com/aeternity"
 
 RUN apt-get update
 

@@ -1,5 +1,5 @@
 FROM       ubuntu:18.04
-MAINTAINER Aleksandar Diklic "https://github.com/rastasheep"
+MAINTAINER Dincho Todorov "https://github.com/aeternity"
 
 RUN apt-get update
 

@@ -4,25 +4,15 @@ Dockerized SSH service, built on top of [official Ubuntu](https://registry.hub.d
 
 ## Image tags
 
-- rastasheep/ubuntu-sshd:12.04 (precise)
-- rastasheep/ubuntu-sshd:12.10 (quantal)
-- rastasheep/ubuntu-sshd:13.04 (raring)
-- rastasheep/ubuntu-sshd:13.10 (saucy)
-- rastasheep/ubuntu-sshd:14.04 (trusty)
-- rastasheep/ubuntu-sshd:16.04 (xenial)
-- rastasheep/ubuntu-sshd:18.04 (bionic)
+- aeternity/ubuntu-sshd:18.04 (bionic)
+- aeternity/ubuntu-sshd:22.04 (jammy)
 
 ## Installed packages
 
 Base:
 
-- [Precise (12.04) minimal](http://packages.ubuntu.com/precise/ubuntu-minimal)
-- [Quantal (12.10) minimal](http://packages.ubuntu.com/quantal/ubuntu-minimal)
-- [Raring (13.04) minimal](http://packages.ubuntu.com/raring/ubuntu-minimal)
-- [Saucy (13.10) minimal](http://packages.ubuntu.com/saucy/ubuntu-minimal)
-- [Trusty (14.04) minimal](http://packages.ubuntu.com/trusty/ubuntu-minimal)
-- [Xenial (16.04) minimal](http://packages.ubuntu.com/xenial/ubuntu-minimal)
 - [Bionic (18.04) minimal](http://packages.ubuntu.com/bionic/ubuntu-minimal)
+- [Jammy (22.04) minimal](http://packages.ubuntu.com/jammy/ubuntu-minimal)
 
 Image specific:
 - [openssh-server](https://help.ubuntu.com/community/SSH/OpenSSH/Configuring)
@@ -38,11 +28,8 @@ Config:
 ## Run example
 
 ```bash
-$ sudo docker run -d -P --name test_sshd rastasheep/ubuntu-sshd:14.04
-$ sudo docker port test_sshd 22
-  0.0.0.0:49154
-
-$ ssh root@localhost -p 49154
+$ docker run -d -p 2222:22 --name test_sshd aeternity/ubuntu-sshd:18.04
+$ ssh root@localhost -p 2222
 # The password is `root`
 root@test_sshd $
 ```
@@ -60,7 +47,3 @@ $ docker exec test_sshd passwd -d root
 $ docker cp file_on_host_with_allowed_public_keys test_sshd:/root/.ssh/authorized_keys
 $ docker exec test_sshd chown root:root /root/.ssh/authorized_keys
 ```
-
-## Issues
-
-If you run into any problems with this image, please check (and potentially file new) issues on the [rastasheep/ubuntu-sshd](https://github.com/rastasheep/ubuntu-sshd/issues) repo, which is the source for this image.
