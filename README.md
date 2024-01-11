@@ -47,3 +47,10 @@ $ docker exec test_sshd passwd -d root
 $ docker cp file_on_host_with_allowed_public_keys test_sshd:/root/.ssh/authorized_keys
 $ docker exec test_sshd chown root:root /root/.ssh/authorized_keys
 ```
+
+# Build and push images
+
+```bash
+docker buildx build --platform linux/amd64,linux/arm64 -t aeternity/ubuntu-sshd:18.04 --push - < 18.04/Dockerfile
+docker buildx build --platform linux/amd64,linux/arm64 -t aeternity/ubuntu-sshd:22.04 --push - < 22.04/Dockerfile
+```
